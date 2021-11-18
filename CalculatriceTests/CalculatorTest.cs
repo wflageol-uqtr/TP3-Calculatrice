@@ -19,7 +19,7 @@ namespace CalculatriceTests
         [TestMethod]
         public void CalculateSimpleString()
         {
-            Assert.AreEqual(5, calculator.Calculate("5 + 8"));
+            Assert.AreEqual(5, calculator.Calculate("2 + 3"));
         }
 
         [TestMethod]
@@ -209,7 +209,7 @@ namespace CalculatriceTests
             calculator.Visit(expr, visitor);
 
             // Assert
-            Assert.AreEqual("2 - (5 - 3) / (16 / 4)", visitor.ToString());
+            Assert.AreEqual("2 + (5 - 3) * (16 / 4)", visitor.ToString());
         }
     }
 }
