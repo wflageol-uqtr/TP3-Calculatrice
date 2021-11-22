@@ -65,7 +65,7 @@ namespace CalculatriceTests
             int result = calculator.Calculate(expr);
 
             // Assert
-            Assert.AreEqual(-2, expr);
+            Assert.AreEqual(-2, result);
         }
 
         [TestMethod]
