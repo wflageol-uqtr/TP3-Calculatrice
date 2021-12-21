@@ -1,5 +1,4 @@
-﻿using Calculatrice.Visitors;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Calculatrice.Expressions
 {
-    public interface IExpression
+    public enum Operator
     {
-        void Accept(IExpressionVisitor visitor);
+        Add,
+        Subtract,
+        Multiply,
+        Divide
     }
 }

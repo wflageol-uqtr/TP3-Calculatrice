@@ -8,23 +8,25 @@ namespace Calculatrice.Expressions
 {
     public class ExpressionBuilder
     {
-        public ExpressionBuilder(int initial) { }
+        private IExpression tree;
 
-        public void Add(int n) { }
-        public void Add(ExpressionBuilder e) { }
-
-        public void Subtract(int n) { }
-        public void Subtract(ExpressionBuilder e) { }
-
-        public void Multiply(int n) { }
-        public void Multiply(ExpressionBuilder e) { }
-
-        public void Divide(int n) { }
-        public void Divide(ExpressionBuilder e) { }
-
-        public IExpression Build()
+        public ExpressionBuilder(int initial) 
         {
-            throw new NotImplementedException();
+            tree = new Value(initial);
         }
+
+        public void Add(int n) => tree = new Operation(tree, new Value(n), Operator.Add);
+        public void Add(ExpressionBuilder e) => tree = new Operation(tree, e.Build(), Operator.Add);
+
+        public void Subtract(int n) => tree = new Operation(tree, new Value(n), Operator.Subtract);
+        public void Subtract(ExpressionBuilder e) => tree = new Operation(tree, e.Build(), Operator.Subtract);
+
+        public void Multiply(int n) => tree = new Operation(tree, new Value(n), Operator.Multiply);
+        public void Multiply(ExpressionBuilder e) => tree = new Operation(tree, e.Build(), Operator.Multiply);
+
+        public void Divide(int n) => tree = new Operation(tree, new Value(n), Operator.Divide);
+        public void Divide(ExpressionBuilder e) => tree = new Operation(tree, e.Build(), Operator.Divide);
+
+        public IExpression Build() => tree;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculatrice.Expressions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace Calculatrice.Visitors
 {
     public interface IExpressionVisitor
     {
+        void Visit(Operator op);
+        void Visit(int value);
     }
 }
